@@ -1,8 +1,8 @@
 <?php
 
 use Acdphp\SnsSqsQueue\Queue\SnsSqsQueue;
-use Acdphp\SnsSqsQueue\Sns\SnsClient;
 use Aws\Result;
+use Aws\Sns\SnsClient;
 use Aws\Sqs\SqsClient;
 use Illuminate\Container\Container;
 use Illuminate\Queue\Jobs\SqsJob;

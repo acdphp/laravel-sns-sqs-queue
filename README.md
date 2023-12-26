@@ -11,7 +11,7 @@ Fanout Laravel queue jobs with AWS SNS and SQS for microservices communication.
     composer require acdphp/laravel-sns-sqs-queue
     ```
 
-2. Add new queue connection in your `config/queue.php`. *(Similar to default sqs connection but with added `sns_endpoint` and `sns_topic_arn`)*
+2. Add new queue connection in your `config/queue.php`. *(Similar to default sqs connection but with added `endpoint` and `sns_topic_arn`)*
    ```php
    'connections' => [
       'sns-sqs' => [
@@ -23,7 +23,7 @@ Fanout Laravel queue jobs with AWS SNS and SQS for microservices communication.
          'queue' => env('SQS_QUEUE', 'default'),
          'suffix' => env('SQS_SUFFIX'),
          'after_commit' => false,
-         'sns_endpoint' => env('SNS_ENDPOINT'),
+         'endpoint' => env('AWS_ENDPOINT'),
          'sns_topic_arn' => env('SNS_TOPIC_ARN', 'arn:aws:sns:us-east-1:your-account-id:topic'),
      ],
    ]

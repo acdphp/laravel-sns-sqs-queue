@@ -2,7 +2,7 @@
 
 namespace Acdphp\SnsSqsQueue\Queue;
 
-use Acdphp\SnsSqsQueue\Sns\SnsClient;
+use Aws\Sns\SnsClient;
 use Aws\Sqs\SqsClient;
 use Illuminate\Queue\SqsQueue;
 

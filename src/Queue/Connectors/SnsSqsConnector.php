@@ -3,7 +3,7 @@
 namespace Acdphp\SnsSqsQueue\Queue\Connectors;
 
 use Acdphp\SnsSqsQueue\Queue\SnsSqsQueue;
-use Acdphp\SnsSqsQueue\Sns\SnsClient;
+use Aws\Sns\SnsClient;
 use Aws\Sqs\SqsClient;
 use Illuminate\Queue\Connectors\SqsConnector;
 use Illuminate\Support\Arr;
