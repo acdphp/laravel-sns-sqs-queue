@@ -9,16 +9,17 @@ use Illuminate\Queue\SqsQueue;
 class SnsSqsQueue extends SqsQueue
 {
     protected SnsClient $sns;
+
     protected string $topicArn;
 
     public function __construct(
         SnsClient $sns,
         string $topicArn,
         SqsClient $sqs,
-                  $default,
-                  $prefix = '',
-                  $suffix = '',
-                  $dispatchAfterCommit = false
+        $default,
+        $prefix = '',
+        $suffix = '',
+        $dispatchAfterCommit = false
     ) {
         $this->sns = $sns;
         $this->topicArn = $topicArn;
@@ -27,7 +28,7 @@ class SnsSqsQueue extends SqsQueue
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function pushRaw($payload, $queue = null, array $options = [])
     {
@@ -38,7 +39,7 @@ class SnsSqsQueue extends SqsQueue
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function later($delay, $job, $data = '', $queue = null)
     {

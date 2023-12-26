@@ -56,6 +56,5 @@ test('push will publish to sns with proper payload', function () {
 
     $this->queue->setContainer($this->createMock(Container::class));
 
-
     $this->queue->push($job);
 });

@@ -11,7 +11,7 @@ use Illuminate\Support\Arr;
 class SnsConnector extends SqsConnector
 {
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function connect(array $config)
     {
