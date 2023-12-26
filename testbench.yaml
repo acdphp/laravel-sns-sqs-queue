@@ -1,0 +1,16 @@
+providers:
+  - Workbench\App\Providers\WorkbenchServiceProvider
+  - Acdphp\SnsSqsQueue\SnsSqsQueueServiceProvider
+
+workbench:
+  start: '/'
+  install: true
+  discovers:
+    web: false
+    api: false
+    commands: false
+    components: false
+    views: false
+  build: []
+  assets: []
+  sync: []
