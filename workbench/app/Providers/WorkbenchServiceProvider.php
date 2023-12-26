@@ -33,6 +33,6 @@ class WorkbenchServiceProvider extends ServiceProvider
             $config->get('queue.connections', [])
         ));
 
-        $config->set('queue.default', 'sns-sqs');
+        //$config->set('queue.default', 'sns-sqs');
     }
 }

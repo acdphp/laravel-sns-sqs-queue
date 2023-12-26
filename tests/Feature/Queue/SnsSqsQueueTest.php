@@ -5,6 +5,7 @@ use Acdphp\SnsSqsQueue\Sns\SnsClient;
 use Aws\Result;
 use Aws\Sqs\SqsClient;
 use Illuminate\Container\Container;
+use Illuminate\Queue\Jobs\SqsJob;
 use PHPUnit\Framework\MockObject\MockObject;
 use Workbench\App\Jobs\MicroserviceMessageJob;
 
@@ -22,6 +23,7 @@ beforeEach(function () {
      */
     $this->sqsClient = $this->getMockBuilder(SqsClient::class)
         ->disableOriginalConstructor()
+        ->addMethods(['receiveMessage'])
         ->getMock();
 
     $this->queue = new SnsSqsQueue(
@@ -30,6 +32,8 @@ beforeEach(function () {
         $this->sqsClient,
         'default_queue'
     );
+
+    $this->queue->setContainer($this->createMock(Container::class));
 });
 
 test('can instantiate queue', function () {
@@ -54,7 +58,16 @@ test('push will publish to sns with proper payload', function () {
         ))
         ->willReturn(new Result([]));
 
-    $this->queue->setContainer($this->createMock(Container::class));
-
     $this->queue->push($job);
+});
+
+test('pop will receive message from sqs', function () {
+    $this->sqsClient->expects($this->once())
+        ->method('receiveMessage')
+        ->willReturn([
+            'Messages' => [['test job']],
+        ]);
+
+    expect($this->queue->pop())
+        ->toBeInstanceOf(SqsJob::class);
 });
