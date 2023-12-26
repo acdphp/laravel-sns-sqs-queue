@@ -2,7 +2,7 @@
 
 namespace Acdphp\SnsSqsQueue;
 
-use Acdphp\SnsSqsQueue\Queue\Connectors\SnsConnector;
+use Acdphp\SnsSqsQueue\Queue\Connectors\SnsSqsConnector;
 use Illuminate\Queue\QueueManager;
 use Illuminate\Support\ServiceProvider;
 
@@ -12,7 +12,7 @@ class SnsSqsQueueServiceProvider extends ServiceProvider
     {
         $this->app->afterResolving(QueueManager::class, function (QueueManager $manager) {
             $manager->addConnector('sns-sqs', function () {
-                return new SnsConnector();
+                return new SnsSqsConnector();
             });
         });
     }

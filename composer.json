@@ -1,6 +1,6 @@
 {
     "name": "acdphp/laravel-sns-sqs-queue",
-    "description": "Fanout Laravel queue job with AWS SNS and SQS for microservices communication.",
+    "description": "Fanout Laravel queue jobs with AWS SNS and SQS for microservices communication.",
     "type": "library",
     "license": "MIT",
     "authors": [
@@ -32,9 +32,7 @@
     "autoload-dev": {
         "psr-4": {
             "Acdphp\\SnsSqsQueue\\Tests\\": "tests",
-            "Workbench\\App\\": "workbench/app/",
-            "Workbench\\Database\\Factories\\": "workbench/database/factories/",
-            "Workbench\\Database\\Seeders\\": "workbench/database/seeders/"
+            "Workbench\\App\\": "workbench/app/"
         }
     },
     "extra": {

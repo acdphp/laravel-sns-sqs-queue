@@ -8,7 +8,7 @@ use Aws\Sqs\SqsClient;
 use Illuminate\Queue\Connectors\SqsConnector;
 use Illuminate\Support\Arr;
 
-class SnsConnector extends SqsConnector
+class SnsSqsConnector extends SqsConnector
 {
     /**
      * {@inheritdoc}

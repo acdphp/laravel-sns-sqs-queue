@@ -1,7 +1,7 @@
 # Laravel SNS-SQS Queue
 [![Latest Stable Version](https://poser.pugx.org/acdphp/laravel-sns-sqs-queue/v)](https://packagist.org/packages/acdphp/laravel-sns-sqs-queue)
 
-Fanout Laravel queue job with AWS SNS and SQS for microservices communication.
+Fanout Laravel queue jobs with AWS SNS and SQS for microservices communication.
 
 ![workflow](./.docs/workflow.jpg)
 
@@ -35,7 +35,7 @@ Fanout Laravel queue job with AWS SNS and SQS for microservices communication.
        ```php
        class MicroserviceMessageJob implements ShouldQueue
        {
-           ...
+           use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
            public function __construct($yourData, $anotherData)
            {
