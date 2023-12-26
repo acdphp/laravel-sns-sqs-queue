@@ -14,7 +14,7 @@ class MicroserviceMessageJob implements ShouldQueue
 
     public function __construct(public array $data)
     {
-        $this->onQueue('sns-sqs');
+        $this->onConnection('sns-sqs');
     }
 
     public function handle(): void

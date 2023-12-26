@@ -14,6 +14,7 @@ Fanout Laravel queue jobs with AWS SNS and SQS for microservices communication.
 2. Add new queue connection in your `config/queue.php`. *(Similar to default sqs connection but with added `endpoint` and `sns_topic_arn`)*
    ```php
    'connections' => [
+      ...
       'sns-sqs' => [
          'driver' => 'sns-sqs',
          'key' => env('AWS_ACCESS_KEY_ID'),
